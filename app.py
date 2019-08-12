@@ -3,7 +3,7 @@ import datetime
 import math
 from flask import Flask, render_template, send_from_directory, request
 from zeep import Client, xsd
-
+# Import custom config
 import config
 
 config.commonstations={'train':config.train_stations,'tram':config.tram_stations,'bus':config.bus_stations}
