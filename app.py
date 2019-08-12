@@ -2,8 +2,8 @@ import requests
 import datetime
 import math
 from flask import Flask, render_template, send_from_directory, request
-from zeep import Client
-from zeep import xsd
+from zeep import Client, xsd
+
 import config
 
 config.commonstations={'train':config.train_stations,'tram':config.tram_stations,'bus':config.bus_stations}
