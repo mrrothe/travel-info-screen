@@ -1,0 +1,159 @@
+body {
+    font-family: 'Roboto', Helvetica, sans-serif;
+    background-color: rgb(59, 59, 59);
+    margin: 0;
+}
+
+.logo {
+    margin: 1%;
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 40%;
+}
+
+.logowrap {
+    flex-basis: 80%
+}
+
+.pageheader {
+    font-weight: 700;
+    display: flex;
+    background-color: #2C2C2C;
+    padding: 2%;
+}
+
+.depart-wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.headertext {
+    color: white;
+    font-size: 3.2em;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    margin: auto;
+}
+
+.depcell {
+    font-weight: 400;
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.5% 2%;
+    margin-bottom: 0.4%;
+    overflow: hidden;
+    font-size: 2em;
+    color: white
+}
+
+.header {
+    color: green;
+    font-size: 2.3em ;
+    font-weight: 700;
+}
+
+.divider {
+    position: relative;
+    height: 0.6em;
+    background: linear-gradient(to right, lightgreen 0%, skyblue 100%);
+}
+
+.depcell {
+    animation: slide-down 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes slide-down {
+    from {
+        margin-top: 200px
+    }
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes slide-right {
+    from {
+        margin-left: 200px
+    }
+    to {
+        margin-left: 0
+    }
+}
+
+@keyframes rotate-down {
+    from {
+        transform: rotate3d(1, 0, 0, 360deg);
+    }
+    to {
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+}
+
+.late {
+    color: red;
+}
+
+.cancelled {
+    color: yellow;
+}
+
+
+/* Train Specific Formatting */
+
+.train-dep-dest {
+    width: 35% ;
+}
+
+.train-dep-time {
+    text-align: center;
+    width: 25% ;
+}
+
+.oldtime {
+    font-size: 0.6em;
+    color: grey;
+    font-style: italic;
+}
+
+.train-dep-status {
+    text-align: center;
+    width: 25% ;
+}
+
+.train-dep-toc {
+    width: 20%
+}
+
+.train-dep-platform {
+    text-align: center;
+    width: 15% ;
+    font-size: 1.6em;
+}
+.train-dep-platform:not(.header) {
+    font-size: 1.5em;
+}
+
+.train-dep-toc>img {
+    height: 75%;
+    margin: auto;
+}
+
+
+/* Tram Specific Formatting */
+
+.tram-dep-dest {
+    width: 35% ;
+}
+
+.tram-dep-time {
+    width: 20% ;
+}
+
+.tram-dep-status {
+    width: 25% ;
+}

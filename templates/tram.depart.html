@@ -1,0 +1,11 @@
+{% extends "depart.html" %}
+{% block mode %}Tram{% endblock %}
+{% block departures %}
+{% for dep in deps %}
+
+        <span class="depcell tram-dep-dest">{{ dep.dest }}</span> <span class="depcell tram-dep-time">{{ dep.waittime }}</span>
+        <span class="depcell tram-dep-status {{ dep.status|lower }}">{{ dep.status }}</span>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "depart.html" %}
+{% block mode %}Train{% endblock %}
+{% block pageheader %}{{ loc }} Departures{% endblock %}
+{% block departures %}
+    <span class="depcell header train-dep-dest">Destination</span>
+    <span class="depcell header train-dep-platform">Platform</span>
+    <span class="depcell header train-dep-status ">Status</span>
+    <span class="depcell header train-dep-time">Departure Time</span>
+    <!--<span class="depcell header train-dep-toc">Operator</span>-->
+{% for dep in deps %}
+    <span class="depcell train-dep-dest">{{ dep.dest }}</span>
+    <span class="depcell train-dep-platform">{{ dep.platform }}</span>
+        <span class="depcell train-dep-status {{dep.status|lower}}">
+        {{ dep.status }}
+    </span>
+    {% if dep.actdeptime %} 
+        <span class="depcell train-dep-time"><span class="oldtime">{{ dep.deptime }}</span> {{ dep.actdeptime }}</span>
+    {% else %}
+        <span class="depcell train-dep-time">{{ dep.deptime }}</span>
+    {% endif %}
+    <!--<span class="depcell train-dep-toc"><img src="//s3.rothe.uk/images/{{ dep.toc|lower|replace(" ","-")}}.png?mi" /></span> -->
+{% endfor %}
+{% endblock %}

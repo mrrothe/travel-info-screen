@@ -1,0 +1,33 @@
+  {% extends "help.html" %}
+  {% block title %}Local Travel Info{% endblock %}
+  {% block head %}
+      {{ super() }}
+      <style>
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        </style>
+  {% endblock %}
+  {% block content %}
+      
+  <h2>Travel Info</h2>
+  <ul>
+    <li>Tube</li>
+    <ul>
+        <li><a href="/tube/status">Line Status</a></li>
+        <li><a x="/tube/departures">Departures</a></li>
+    </ul>
+    <li>Train</li>
+    <ul>
+        <li><a href="/train/departures">Departures</a></li>
+    </ul>
+    <li>Bus <i>Not yet implemented</i></li>
+    <ul>
+        <li><a x="/bus/departures">Departures</a></li>
+    </ul>
+    <li>Tram</li>
+    <ul>
+        <li><a x="/tram/status">Status</a></li>
+        <li><a href="/tram/departures">Departures</a></li>
+    </ul>
+{% endblock %}
