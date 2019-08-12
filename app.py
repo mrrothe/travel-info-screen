@@ -1,6 +1,7 @@
+import math
 import requests
 import datetime
-import math
+
 from flask import Flask, render_template, send_from_directory, request
 from zeep import Client, xsd
 # Import custom config
@@ -15,10 +16,6 @@ def showhelp_root():
 
 @app.route('/js/<path:path>')
 def send_js(path):
-    return send_from_directory('static', path)
-
-@app.route('/test/<path:path>')
-def send_test(path):
     return send_from_directory('static', path)
 
 @app.route('/css/<path:path>')
