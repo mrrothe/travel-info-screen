@@ -2,17 +2,11 @@
 {% block title %}N4 Local Travel Info{% endblock %}
 {% block head %}
     {{ super() }}
-    <style>
-          body{
-              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          }
-      </style>
 {% endblock %}
 {% block content %}
-    
 <h2>Tram Departures</h2>
 URL format <code>/train/depatures/&lt;stop&gt;</code> where &lt;stop&gt; is a NaPTAN code for a UK tram stop.<br />
-Useful links for Node4 office tram stops:
+Useful links for tram stops:
 <ul>
   {% for name,code in stops.items() %}
   <li><a href="{{ code }}">{{ name }}</a></li>

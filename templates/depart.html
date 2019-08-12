@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     {% if request.args.get('refresh') %}
     <meta http-equiv="refresh" content="10">
     {% endif %}
     <title>{{ loc }} Departures</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/depart2.css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/depart.css">
     <style>
         .header {
             color: #{{ config.headercolor}};
@@ -18,7 +17,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="pageheader"><span class="logowrap"><img class="logo" src="{{ config.logosrc }}" /> </span><span
             class="headertext">{% block pageheader %}{% endblock %}</span></div>
@@ -27,5 +25,4 @@
         {% block departures %}{% endblock %}
     </div>
 </body>
-
 </html>

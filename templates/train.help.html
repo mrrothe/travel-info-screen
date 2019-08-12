@@ -2,17 +2,11 @@
   {% block title %}Local Travel Info{% endblock %}
   {% block head %}
       {{ super() }}
-      <style>
-            body{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-        </style>
   {% endblock %}
   {% block content %}
-      
   <h2>Train Departures</h2>
 URL format <code>/train/depatures/&lt;station&gt;</code> where &lt;station&gt; is a NaPTAN code for a UK railway station.
-Useful links for Node4 office railway stations:
+Useful links for railway stations:
 <ul>
     {% for name,crs in stops.items() %}
     <li><a href="{{ crs }}">{{ name }}</a></li>
