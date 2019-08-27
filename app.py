@@ -70,7 +70,7 @@ def showstatus():
     dlrs['disrupted'] = dlrJson[0]['disruptions']
    
     tubestatus.append(os) # Add overground status to array
-    tubestatus.append(dlr) # Add DLR status to array
+    tubestatus.append(dlrs) # Add DLR status to array
     html = render_template('status.html',config=config, lines=tubestatus)
     return html
 
