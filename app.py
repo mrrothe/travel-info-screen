@@ -134,7 +134,7 @@ def showtramdepart(tramstop):
                     # Convert aimed time from string to date obj
                     aim = datetime.datetime.strptime(
                         visit['aimedArrivalTime'], '%Y-%m-%dT%X+01:00')
-                                    diff = (exp - aim).total_seconds()
+                    diff = (exp - aim).total_seconds()
                     if diff > 0: # If difference is positive then tram is late
                         minlate = math.ceil(diff / 60)
                         tramdep["status"] = "Late (" + str(minlate) + " min)"
