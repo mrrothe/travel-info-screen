@@ -49,18 +49,17 @@ body {
 }
 .tube-wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 .tube-line {
     display: flex;
-    flex-basis: auto;
     min-width: 40%;
-    flex-grow: 1;
     margin: 10px;
     font-family: sans-serif;
     color: white;
     font-size: 2.4em;
     margin: 10px;
-    flex-wrap: wrap
+
 }
 .bakerloo {
     background-color: #B36305;
