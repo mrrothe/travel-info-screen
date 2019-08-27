@@ -31,10 +31,10 @@ def showstatus():
     dlrJson = requests.get(
         "https://api.tfl.gov.uk/Line/Mode/dlr/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     allJson=tubeJson + overgroundJson + dlrJson
-    
+
     tubestatus = []
     for line in allJson:
-        ts = {}import requ
+        ts = {}
         ts['name'] = line['name']
         ts['id'] = line['id']
         ts['status'] = line['lineStatuses'][0]['statusSeverityDescription']
