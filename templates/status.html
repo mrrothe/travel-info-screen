@@ -3,14 +3,18 @@
 <head>
     <meta charset="utxf-8">
     <title>Tube Status</title>
-    {% if request.args.get('testing') %}
-    <link rel="stylesheet" type="text/css" href="/css/tube.test.css?{{ range(1, 200) | random }}">
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="/css/tube.css?{{ range(1, 200) | random }}">
-    {% endif %}
+    <link rel="stylesheet" type="text/css" href="/css/tube.css">
+    <style>
+        .header {
+            color: #{{ config.headercolor}};
+        }
+        .divider {
+            background: linear-gradient(to right, #{{ config.grad1 }} 0%, #{{ config.grad2 }} 100%);
+        }
+    </style>
 </head> 
 <body>
-    <div id="pageheader"><span class="logowrap"><img class="logo" src="//s3.rothe.uk/images/n4.png?" /> </span><span class="headertext">{% block pageheader %}{% endblock %}</span></div>
+    <div id="pageheader"><span class="logowrap"><img class="logo" src="{{ config.logosrc }}" /> </span><span class="headertext">{% block pageheader %}{% endblock %}</span></div>
     <div class="divider"> </div>
     <div id="tube-wrapper">
         {% for line in lines %}
