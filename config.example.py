@@ -6,7 +6,7 @@ tfl_appkey=""
 # Branding
 logosrc="//cdn.com/images/logo.png"
 headercolor="1A4E7C"
-grad1="1A7C73"
+grad1="187E70"
 grad2="1A747C "
 companyname="Company Ltd"
 
