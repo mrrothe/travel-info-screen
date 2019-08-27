@@ -19,12 +19,6 @@ body {
     padding: 18px;
 }
 
-#depart-wrapper {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-}
 
 .headertext {
     color: white;
@@ -36,28 +30,11 @@ body {
     margin: auto;
 }
 
-.depcell {
-    font-weight: 400;
-    box-sizing: border-box;
-    flex-grow: 1;
-    width: 100%;
-    padding: 0.5% 2%;
-    margin-bottom: 10px;
-    overflow: hidden;
-    font-size: 2em;
-    color: white
-}
 
 .header {
     color: #f79220;
     font-size: 2.5em;
     font-weight: 700;
-}
-
-.divider {
-    position: relative;
-    height: 8px;
-    background: linear-gradient(to right, #e83460 0%, #f78820 100%);
 }
 
 .tube-line {
@@ -90,12 +67,13 @@ body {
         transform: rotate3d(1, 0, 0, 0deg);
     }
 }
-
+.tube-wrapper {
+    display: flex;
+}
 .tube-line {
     display: flex;
-    min-width: 60%px;
-    max-width: 80%px;
     flex-basis: auto;
+    min-width: 40%;
     flex-grow: 1;
     margin: 10px;
     font-family: sans-serif;
