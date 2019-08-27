@@ -28,7 +28,7 @@ def showstatus():
         "https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     overgroundJson = requests.get(
         "https://api.tfl.gov.uk/Line/Mode/overground/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-        dlrJson = requests.get(
+    dlrJson = requests.get(
         "https://api.tfl.gov.uk/Line/Mode/dlr/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     tubestatus = []
     for line in tubeJson:
@@ -44,6 +44,7 @@ def showstatus():
             ts['statuscode'] = "good"
         ts['disrupted'] = line['disruptions']
         tubestatus.append(ts)
+
     os = {}
     os['name'] = "Overground"
     os['id'] = 'overground'
