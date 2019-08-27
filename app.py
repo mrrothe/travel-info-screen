@@ -28,6 +28,8 @@ def showstatus():
         "https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     overgroundJson = requests.get(
         "https://api.tfl.gov.uk/Line/Mode/overground/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
+        dlrJson = requests.get(
+        "https://api.tfl.gov.uk/Line/Mode/dlr/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     tubestatus = []
     for line in tubeJson:
         ts = {}
@@ -52,9 +54,22 @@ def showstatus():
         os['statuscode'] = "bad"
     else:
         os['statuscode'] = "good"
-
     os['disrupted'] = overgroundJson[0]['disruptions']
-    tubestatus.append(os)
+
+    dlrs = {}
+    dlrs['name'] = "DLR"
+    dlrs['id'] = 'dlr'
+    dlrs['status'] = dlrJson[0]['lineStatuses'][0]['statusSeverityDescription']
+    if 10 > dlrJson[0]['lineStatuses'][0]['statusSeverity'] > 5:
+        dlrs['statuscode'] = "degraded"
+    elif dlrJson[0]['lineStatuses'][0]['statusSeverity'] < 6:
+        dlrs['statuscode'] = "bad"
+    else:
+        dlrs['statuscode'] = "good"
+    dlrs['disrupted'] = dlrJson[0]['disruptions']
+   
+    tubestatus.append(os) # Add overground status to array
+    tubestatus.append(dlr) # Add DLR status to array
     html = render_template('status.html',config=config, lines=tubestatus)
     return html
 
