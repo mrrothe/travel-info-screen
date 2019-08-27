@@ -14,10 +14,6 @@ app = Flask(__name__)
 def showhelp_root():
     return render_template('travel.help.html')
 
-@app.route('/js/<path:path>')
-def send_js(path):
-    return send_from_directory('static', path)
-
 @app.route('/css/<path:path>')
 def send_css(path):
     return send_from_directory('static', path)
