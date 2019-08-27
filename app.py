@@ -30,7 +30,9 @@ def showstatus():
         "https://api.tfl.gov.uk/Line/Mode/overground/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
     dlrJson = requests.get(
         "https://api.tfl.gov.uk/Line/Mode/dlr/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-    allJson=tubeJson + overgroundJson + dlrJson
+    tflrailJson = requests.get(
+        "https://api.tfl.gov.uk/Line/Mode/tflrail/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
+    allJson=tubeJson + overgroundJson + dlrJson + tflrailJson
 
     tubestatus = []
     for line in allJson:

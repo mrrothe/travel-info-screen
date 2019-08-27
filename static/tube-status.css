@@ -103,12 +103,16 @@ body {
     background-color: black;
     color: white;
 }
-.overground {
+.london-overground {
     background-color: #EE7C0E;
     color: white;
 }
 .piccadilly {
     background-color: #003688;
+    color: white;
+}
+.tfl-rail {
+    background-color: #7156A5;
     color: white;
 }
 .victoria {
