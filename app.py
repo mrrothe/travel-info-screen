@@ -24,16 +24,11 @@ def showhelp(mode):
 
 @app.route('/tube/status')
 def showstatus():
-    tubeJson = requests.get(
-        "https://api.tfl.gov.uk/Line/Mode/tube/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-    overgroundJson = requests.get(
-        "https://api.tfl.gov.uk/Line/Mode/overground/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-    dlrJson = requests.get(
-        "https://api.tfl.gov.uk/Line/Mode/dlr/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-    tflrailJson = requests.get(
-        "https://api.tfl.gov.uk/Line/Mode/tflrail/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
-    allJson=tubeJson + overgroundJson + dlrJson + tflrailJson
-
+    modes=["tube","overground","dlr","tflrail"]
+    allJson=[]
+    for mode in modes:
+        json=requests.get("https://api.tfl.gov.uk/Line/Mode/"+mode+"/Status?detail=true&app_id=" + config.tfl_appid + "&app_key=" + config.tfl_appkey).json()
+        allJson+=json
     tubestatus = []
     for line in allJson:
         ts = {}
