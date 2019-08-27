@@ -37,10 +37,10 @@ body {
 
 @keyframes slide-down {
     from {
-        margin-top: 200px
+        margin-top: 250px
     }
     to {
-        margin-top: 0px
+        margin-top: 10px
     }
 }
 .divider {
