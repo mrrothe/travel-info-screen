@@ -62,7 +62,6 @@ def showstatus():
     html = render_template('status.html',config=config, lines=tubestatus)
     return html
 
-
 @app.route('/train/departures/<station>')
 def showtraindepart(station):
     WSDL = 'http://lite.realtime.nationalrail.co.uk/OpenLDBWS/wsdl.aspx?ver=2017-10-01'
@@ -135,9 +134,13 @@ def showtramdepart(tramstop):
                     # Convert aimed time from string to date obj
                     aim = datetime.datetime.strptime(
                         visit['aimedArrivalTime'], '%Y-%m-%dT%X+01:00')
-                    # Calculate difference between expected and aimed in min
-                    minlate = math.ceil((exp-aim).total_seconds()/60)
-                    tramdep['status'] = "Late ("+str(minlate)+" min)"
+                                    diff = (exp - aim).total_seconds()
+                    if diff > 0: # If difference is positive then tram is late
+                        minlate = math.ceil(diff / 60)
+                        tramdep["status"] = "Late (" + str(minlate) + " min)"
+                    else: # else tram is early
+                        minearly = math.ceil(diff / -60)
+                        tramdep["status"] = "Early (" + str(minearly) + " min)"
                 tramdeps.append(tramdep)
     tramdeps = sorted(tramdeps, key=lambda k: k['waitnum'])
     html = render_template('tram.depart.html',config=config, deps=tramdeps, loc=tramstop)
