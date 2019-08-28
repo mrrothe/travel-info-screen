@@ -171,5 +171,8 @@ def showbusdepart(busstop):
 
 
 @app.route('/tube/departures/<station>')
-def showtubedepartures():
-    return "Tube departures not yet implemented"
+def showtubedepartures(station):
+    depjson=requests.get("https://api.tfl.gov.uk/Mode/tube/Arrivals?count=6").json()
+    tubedeps = list(filter(lambda s: (s["stationName"]).lower()==station.lower()+" underground station",depjson))
+    html = render_template('tube.depart.html',config=config, deps=tubedeps, loc=station)
+    return html

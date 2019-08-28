@@ -1,0 +1,15 @@
+{% extends "depart.html" %}
+{% block mode %}Tube{% endblock %}
+{% block pageheader %}{{ loc }} Departures{% endblock %}
+{% block departures %}
+    <span class="depcell header tube-dep-line">Line</span>
+    <span class="depcell header tube-dep-platform">Platform</span>
+    <span class="depcell header tube-dep-dest ">Towards</span>
+    <span class="depcell header tube-dep-time">Expected Arrival</span>
+{% for dep in deps %}
+    <span class="depcell tube-dep-line">{{ dep.lineName }}</span>
+    <span class="depcell tube-dep-platform">{{ dep.platform }}</span>
+    <span class="depcell tube-dep-dest">{{ dep.towards }}</span>
+    <span class="depcell tube-dep-time">{{ dep.expectedArrival }}</span>
+{% endfor %}
+{% endblock %}
