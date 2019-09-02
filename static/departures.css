@@ -158,3 +158,24 @@ body {
 .tram-dep-status {
     width: 25%;
 }
+
+/* Tube specific formatting */
+
+.tube-dep-line {
+    width: 20%;
+}
+
+.tube-dep-platform {
+    text-align: center;
+    width: 15%;
+}
+
+.tube-dep-dest {
+    text-align: center;
+    width: 25%;
+}
+
+.tube-dep-time {
+    width: 35%
+}
+

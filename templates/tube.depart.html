@@ -8,8 +8,8 @@
     <span class="depcell header tube-dep-time">Expected Arrival</span>
 {% for dep in deps %}
     <span class="depcell tube-dep-line">{{ dep.lineName }}</span>
-    <span class="depcell tube-dep-platform">{{ dep.platform }}</span>
+    <span class="depcell tube-dep-platform">{{ dep.platformName }}</span>
     <span class="depcell tube-dep-dest">{{ dep.towards }}</span>
-    <span class="depcell tube-dep-time">{{ dep.expectedArrival }}</span>
+    <span class="depcell tube-dep-time">{{ datetime.strptime(dep.expectedArrival, '%Y-%m-%dT%H:%M:%sZ').strftime('%H:%M') }}</span>
 {% endfor %}
-{% endblock %}
+{% endblock %} 
