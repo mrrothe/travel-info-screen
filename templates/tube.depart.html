@@ -10,6 +10,6 @@
     <span class="depcell tube-dep-line">{{ dep.lineName }}</span>
     <span class="depcell tube-dep-platform">{{ dep.platformName }}</span>
     <span class="depcell tube-dep-dest">{{ dep.towards }}</span>
-    <span class="depcell tube-dep-time">{{ datetime.strptime(dep.expectedArrival, '%Y-%m-%dT%H:%M:%sZ').strftime('%H:%M') }}</span>
+    <span class="depcell tube-dep-time">{{ dep.expectedArrival }}</span>
 {% endfor %}
 {% endblock %} 
