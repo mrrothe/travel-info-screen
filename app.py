@@ -1,6 +1,7 @@
 import math
 import requests
 import datetime
+import lxml.html as LH
 
 from flask import Flask, render_template, send_from_directory, request
 from zeep import Client, xsd
@@ -23,7 +24,7 @@ def showhelp(mode):
     return render_template(mode+'.help.html', stops=config.commonstations[mode])
 
 @app.route('/tube/status')
-def showstatus():
+def showstubetatus():
     modes=["tube","overground","dlr","tflrail"]
     allJson=[]
     for mode in modes:
@@ -46,6 +47,23 @@ def showstatus():
 
     html = render_template('status.html',config=config, lines=tubestatus)
     return html
+
+@app.route('/tram/status')
+def showtramstatus():
+    trampage=requests.get("https://www.thetram.net/")
+    tramdoc=LH.document_fromstring(trampage.content)
+    zoneclasses=tramdoc.find_class("accordians")[0]
+    tramzonestatus=[]
+    for zoneclass in zoneclasses:
+        try:
+            #tramzonestatus.append(zoneclass.items())
+            tramzonestatus.append(zoneclass.text_content())
+        except:
+            print("Comment")
+    html = render_template('tram.status.html',config=config, zones=tramzonestatus)
+    return html
+
+
 
 @app.route('/train/departures/<station>')
 def showtraindepart(station):

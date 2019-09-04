@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utxf-8">
+    <title>Tube Status</title>
+    <link rel="stylesheet" type="text/css" href="/css/tube-status.css">
+    <style>
+        .header {
+            color: #{{ config.headercolor}};
+        }
+        .divider {
+            background: linear-gradient(to right, #{{ config.grad1 }} 0%, #{{ config.grad2 }} 100%);
+        }
+    </style>
+</head> 
+<body>
+    <div id="pageheader"><span class="logowrap"><img class="logo" src="{{ config.logosrc }}" /> </span><span class="headertext">Tube Line Status</span></div>
+    <div class="divider"> </div>
+    <div id="tube-wrapper">
+        {% for zone in zones %}
+        <div class="tube-line">
+            {{ zone }}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
